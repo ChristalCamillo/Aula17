@@ -15,14 +15,13 @@ class Funcionario(var horasTrabalhadas: Double, var valorPorHora: Double) {
         println("O nome é $nome e o sobrenome é $sobrenome")
     }
 
-    fun calcularSalario(horasTrabalhadas: Double, valorPorHora: Double){
+    fun calcularSalario(){
         var salarioMensal = horasTrabalhadas*valorPorHora
         println("O salário mensal é $salarioMensal")
     }
 
-    fun incrementarHoras(incrementarHoras: Double): Double{
-        var horaIncrementada = valorPorHora+incrementarHoras
-        return horaIncrementada
+    fun incrementarHoras(incrementarHoras: Double){
+        valorPorHora = valorPorHora+incrementarHoras
     }
 
 }

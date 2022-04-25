@@ -19,8 +19,8 @@ fun main() {
     novoFuncionario.sobrenome = "Silva"
 
     novoFuncionario.nomeCompleto()
-    novoFuncionario.calcularSalario(10.00, 25.50)
+    novoFuncionario.calcularSalario()
     novoFuncionario.incrementarHoras(8.00)
-    novoFuncionario.calcularSalario(horasTrabalhadas = horaIncrementada, )
+    novoFuncionario.calcularSalario()
 
 }
