@@ -13,14 +13,13 @@
 //   * Exiba os valores do ArrayList criado
 
 fun main() {
-    var novoFuncionario: Funcionario = Funcionario(10.00, 25.50)
-
-    novoFuncionario.nome = "Luis"
-    novoFuncionario.sobrenome = "Silva"
+    var novoFuncionario: Funcionario = Funcionario("Luis", "Silva", 10.00, 25.5)
 
     novoFuncionario.nomeCompleto()
     novoFuncionario.calcularSalario()
     novoFuncionario.incrementarHoras(8.00)
     novoFuncionario.calcularSalario()
+
+
 
 }
