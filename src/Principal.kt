@@ -13,13 +13,19 @@
 //   * Exiba os valores do ArrayList criado
 
 fun main() {
-    var novoFuncionario: Funcionario = Funcionario("Luis", "Silva", 10.00, 25.5)
+    val gerenciadorFuncionario = Funcionario(
+        "",
+        "",
+        0.0,
+        0.0
+    )
 
-    novoFuncionario.nomeCompleto()
-    novoFuncionario.calcularSalario()
-    novoFuncionario.incrementarHoras(8.00)
-    novoFuncionario.calcularSalario()
+    val quantidade = gerenciadorFuncionario.solicitarQuantidadeFuncionarios()
 
+    for (i in 1..quantidade) {
+        val funcionarioCadastrado = gerenciadorFuncionario.criarFuncionario()
+        gerenciadorFuncionario.inserirFuncionarioLista(funcionarioCadastrado)
+    }
 
-
+    gerenciadorFuncionario.exibirFuncionariosLista()
 }

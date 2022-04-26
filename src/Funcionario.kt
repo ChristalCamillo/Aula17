@@ -7,35 +7,69 @@
 //
 //   4. O método incrementarHoras adiciona um valor passado por parâmetro ao valor já existente no atributo valorPorHora
 //
-class Funcionario(var nome: String,
-                  var sobrenome: String,
-                  var horasTrabalhadas: Double,
-                  var valorPorHora: Double) {
-
-    var lista: ArrayList<Funcionario> = ArrayList()
+class Funcionario(
+    nomeParametro: String,
+    sobrenomeParametro: String,
+    horasTrabalhadasParametro: Double,
+    valorPorHoraParametro: Double
+) {
+    var nome: String = nomeParametro
+    var sobrenome: String = sobrenomeParametro
+    var horasTrabalhadas: Double = horasTrabalhadasParametro
+    var valorPorHora: Double = valorPorHoraParametro
+    var listaFuncionarioAtributo: ArrayList<Funcionario> = ArrayList()
 
     fun nomeCompleto() {
-        println("O nome é $nome e o sobrenome é $sobrenome")
+        println("Dados funcionário - Nome: $nome $sobrenome")
     }
 
     fun calcularSalario() {
-        var salarioMensal = horasTrabalhadas * valorPorHora
-        println("O salário mensal é $salarioMensal")
+        val salario = horasTrabalhadas * valorPorHora
+        println("O salário é de: R$ $salario")
     }
 
-    fun incrementarHoras(incrementarHoras: Double) {
-        valorPorHora += incrementarHoras
+    fun incrementarHoras(novaHora: Double) {
+        horasTrabalhadas += novaHora
     }
 
-    fun inserirFuncionario(funcionario: Funcionario) {      //crio variavel funcionario do tipo classe criada
-        val listaFuncionario = ArrayList<Funcionario>()    //Crio lista do tipo classe criada
-        listaFuncionario.add(funcionario)               //lista vai adicionar o funcionario que chegar como parâmetro
-        lista = listaFuncionario
+    fun inserirFuncionarioLista(funcionario: Funcionario) {
+        listaFuncionarioAtributo.add(funcionario)
     }
 
     fun exibirFuncionariosLista() {
-        lista.forEach {
+        println("------- LISTA DE FUNCIONÁRIOS ------")
+        listaFuncionarioAtributo.forEach {
             it.nomeCompleto()
         }
+    }
+
+    fun solicitarQuantidadeFuncionarios(): Int{
+        println("------- QUANTIDADE DE FUNCIONÁRIOS ------")
+        println("Quantos funcionários serão cadastrados? ")
+        val quantidade = readln().toInt()
+
+        return quantidade
+    }
+
+    fun criarFuncionario(): Funcionario {
+        println("------- CADASTRO DE FUNCIONÁRIOS ------")
+        println("Digite o nome: ")
+        val nomeFuncionario = readln()
+
+        println("Digite o sobrenome: ")
+        val sobrenomeFuncionario = readln()
+
+        println("Digite quantidade de horas trabalhadas: ")
+        val horasTrabalhadasFuncionario = readln().toDouble()
+
+        println("Digite quantidade do valor hora: ")
+        val valorHoraFuncionario = readln().toDouble()
+
+        return Funcionario(
+            nomeParametro = nomeFuncionario,
+            sobrenomeParametro = sobrenomeFuncionario,
+            horasTrabalhadasParametro = horasTrabalhadasFuncionario,
+            valorPorHoraParametro = valorHoraFuncionario
+        )
     }
 }
